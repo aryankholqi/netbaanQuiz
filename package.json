@@ -18,7 +18,8 @@
     "next-themes": "^0.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-toastify": "^10.0.5"
+    "react-toastify": "^10.0.5",
+    "recharts": "^2.12.7"
   },
   "devDependencies": {
     "@tanstack/eslint-plugin-query": "^5.51.12",
