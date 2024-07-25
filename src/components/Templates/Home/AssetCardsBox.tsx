@@ -30,7 +30,7 @@ export default function AssetCardsBox() {
     ]
 
     return (
-        <div className='grid grid-cols-3 gap-10'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10'>
             {assetCardsData.map((asset, index) => (
                 <AssetCard key={index} {...asset.info} title={asset.title} mainIconInfo={asset.mainIconInfo} bottomStatsIconInfo={bottomStatsIconInfo} />
             ))}
