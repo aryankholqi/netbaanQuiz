@@ -31,7 +31,7 @@ export default function AssetCard({ title, ips, live, monitored, ports, total, t
         }
     }
     return (
-        < div className={`bg-[#1D2229] p-3 rounded-xl space-y-4 transition-all duration-[120ms] cursor-pointer ${type?.includes(title) ? "border-2 border-white" : null}`}
+        <div className={`bg-[#1D2229] p-3 rounded-xl space-y-4 transition-all duration-[120ms] cursor-pointer ${type?.includes(title) ? "border-2 border-white" : null}`}
             onClick={() => selectAssetTypeToFilterData(title)}>
             <div className="flex justify-between items-start text-center">
                 <div className="flex flex-col">
@@ -73,6 +73,6 @@ export default function AssetCard({ title, ips, live, monitored, ports, total, t
                     </div>
                 ))}
             </div>
-        </div >
+        </div>
     )
 }

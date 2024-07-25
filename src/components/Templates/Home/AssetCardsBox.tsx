@@ -4,10 +4,12 @@ import ConflictIcon from '../../../assets/icons/Conflict'
 import EarthIcon from '../../../assets/icons/Earth'
 import GlobeIcon from '../../../assets/icons/Globe'
 import { useGetAssetsInfoApi } from '../../../hooks/api/useAssetApi'
+import AssetCardSkeleton from '../../Modules/Skeleton/AssetCard/AssetCardSkeleton'
 import AssetCard from './AssetCard'
 
 export default function AssetCardsBox() {
-    const { data } = useGetAssetsInfoApi()
+    const { data, isLoading } = useGetAssetsInfoApi()
+
     const assetCardsData = [
         { title: "Domains", mainIconInfo: { Icon: <EarthIcon />, bgColor: "#DF6710" }, info: data?.domain },
         { title: "IP Addresses", mainIconInfo: { Icon: <EarthIcon />, bgColor: "#565392" }, info: data?.ip },
@@ -31,9 +33,13 @@ export default function AssetCardsBox() {
 
     return (
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10'>
-            {assetCardsData.map((asset, index) => (
-                <AssetCard key={index} {...asset.info} title={asset.title} mainIconInfo={asset.mainIconInfo} bottomStatsIconInfo={bottomStatsIconInfo} />
-            ))}
+            {isLoading ? Array.from({ length: 3 }, (_, index) => (
+                <AssetCardSkeleton key={index} />
+            )) :
+                assetCardsData.map((asset, index) => (
+                    <AssetCard key={index} {...asset.info} title={asset.title} mainIconInfo={asset.mainIconInfo} bottomStatsIconInfo={bottomStatsIconInfo} />
+                ))
+            }
         </div>
     )
 }
